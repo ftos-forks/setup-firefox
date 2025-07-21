@@ -9,8 +9,12 @@ export type InstallSpec = {
   language: string;
 };
 
+export type InstallResult = {
+  installedBinPath: string;
+};
+
 export interface Installer {
-  install(spec: InstallSpec): Promise<string>;
+  install(spec: InstallSpec): Promise<InstallResult>;
 
   testVersion(bin: string): Promise<string>;
 }
