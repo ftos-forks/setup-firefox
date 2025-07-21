@@ -1,4 +1,3 @@
-import * as path from "node:path";
 import * as core from "@actions/core";
 import { InstallerFactory } from "./installers";
 import { getPlatform } from "./platform";
@@ -17,11 +16,12 @@ const run = async (): Promise<void> => {
     core.info(`Setup firefox ${version} (${language})`);
 
     const installer = new InstallerFactory().create(platform);
-    const { installedDir, installedBinPath } = await installer.install({
-      version,
-      platform,
-      language,
-    });
+    const { installDir: installedDir, installBinPath: installedBinPath } =
+      await installer.install({
+        version,
+        platform,
+        language,
+      });
 
     core.addPath(installedDir);
 

@@ -16,7 +16,8 @@ export class LinuxInstaller implements Installer {
     if (toolPath) {
       core.info(`Found in cache @ ${toolPath}`);
       return {
-        installedBinPath: path.join(toolPath, "firefox"),
+        installDir: toolPath,
+        installBinPath: path.join(toolPath, "firefox"),
       };
     }
     core.info(`Attempting to download firefox ${version}...`);
@@ -35,7 +36,8 @@ export class LinuxInstaller implements Installer {
     core.info(`Successfully cached firefox ${version} to ${cachedDir}`);
 
     return {
-      installedBinPath: path.join(cachedDir, "firefox"),
+      installDir: extPath,
+      installBinPath: path.join(cachedDir, "firefox"),
     };
   }
 

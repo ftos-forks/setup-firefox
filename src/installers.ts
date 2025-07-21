@@ -10,7 +10,8 @@ export type InstallSpec = {
 };
 
 export type InstallResult = {
-  installedBinPath: string;
+  installDir: string;
+  installBinPath: string;
 };
 
 export interface Installer {

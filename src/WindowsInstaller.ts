@@ -18,7 +18,8 @@ export class WindowsInstaller implements Installer {
     if (await this.checkInstall(installPath)) {
       core.info(`Already installed @ ${installPath}`);
       return {
-        installedBinPath: path.join(installPath, "firefox.exe"),
+        installDir: installPath,
+        installBinPath: path.join(installPath, "firefox.exe"),
       };
     }
 
@@ -34,7 +35,8 @@ export class WindowsInstaller implements Installer {
     core.info(`Successfully installed firefox ${version} to ${installPath}`);
 
     return {
-      installedBinPath: path.join(installPath, "firefox.exe"),
+      installDir: installPath,
+      installBinPath: path.join(installPath, "firefox.exe"),
     };
   }
 
